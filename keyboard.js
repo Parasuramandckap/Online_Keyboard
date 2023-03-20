@@ -31,12 +31,12 @@ if(a == "online"){
             document.querySelector(".CapsLock").classList.toggle("color")
             for(let i=0;i<keys.length;i++){
                 if(document.querySelector(".CapsLock").classList.contains("color")){
-                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space"){
+                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" && keys[i].innerText !== "Tam-mic"&& keys[i].innerText !== ".com"){
                         keys[i].innerText =  keys[i].innerText.toUpperCase()
                     }
                 }
                 else{
-                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space"){
+                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" && keys[i].innerText !== "Tam-mic" && keys[i].innerText !== ".com"){
                         keys[i].innerText =  keys[i].innerText.toLowerCase()
                     }
                 }
@@ -118,8 +118,8 @@ else{
 
 for(let i=0;i<keys.length;i++){
     keys[i].addEventListener("click",(e)=>{
-            //console.log(e.target.innerText) 
-        if (e.target.innerText !== "Backspace" && e.target.innerText !== "Enter" && e.target.innerText !== "CapsLock" && e.target.innerText !== "Tab" && e.target.innerText !== "ctrl" && e.target.innerText !== "fn" && e.target.innerText !== "Alt" && e.target.innerText !== "Shift" && e.target.innerText !== "space" ) {
+            console.log(e.target.innerText) 
+        if (e.target.innerText !== "Backspace" && e.target.innerText !== "Enter" && e.target.innerText !== "CapsLock" && e.target.innerText !== "Tab" && e.target.innerText !== "ctrl" && e.target.innerText !== "fn" && e.target.innerText !== "Alt" && e.target.innerText !== "Shift" && e.target.innerText !== "space" && e.target.innerText !== "Eng-mic" && e.target.innerText !== "Tam-mic") {
             text.value += e.target.innerText
             
             // alert()
@@ -135,17 +135,25 @@ for(let i=0;i<keys.length;i++){
             text.value+=""
     
         }
+        else if(e.target.innerText === "Eng-mic"){
+            text.value+=''
+            English_voice()
+        }
+        else if(e.target.innerText === "Tam-mic"){
+            text.value+=''
+            Tamil_Voice()
+        }
         else if(e.target.innerText === "CapsLock"){
     
             document.querySelector(".CapsLock").classList.toggle("color")
                 for(let i=0;keys.length;i++){
                     if(document.querySelector(".CapsLock").classList.contains("color")){
             
-                        if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space"){
+                        if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" && keys[i].innerText !== "Tam-mic" && keys[i].innerText !== ".com"){
                             keys[i].innerText =  keys[i].innerText.toUpperCase()
                         }
                 }else{
-                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space"){
+                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" && keys[i].innerText !== "Tam-mic"&& keys[i].innerText !== ".com"){
                         keys[i].innerText =  keys[i].innerText.toLowerCase()
                     }
                 }
@@ -158,7 +166,6 @@ for(let i=0;i<keys.length;i++){
             text.value+="    "    
         }
         else if(e.target.innerText === "Shift"){
-            
             shift()
         }
         else if(e.target.innerText ==="space"){
@@ -205,8 +212,64 @@ function shift() {
     
 }
 
+function English_voice(){
+    let voice_is = 1;
+    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    
+    const recognition_voice = new SpeechRecognition();
+    console.log(recognition_voice)
+    recognition_voice.interimResults = true;
+    recognition_voice.lang = "en-US";
+    // recognition_voice.lang = "ta-IN";
+    // recognition.lang = "tamil";
 
+    recognition_voice.addEventListener('result', e => {
+        const transcript = Array.from(e.results)
+             .map(result => result[0])
+            .map(result => result.transcript)
+            .join('')
+            //console.log(transcript)
+            
+    
+        text.value += transcript
+    });
+      
+    if (voice_is == 1) {
+        recognition_voice.start();
+        //console.log(recognition.start())
+        recognition_voice.addEventListener('end', recognition_voice.start);
+        //console.log(recognition_voice.start)
+    }
+}
 
+function Tamil_Voice(){
+    let voice_is = 1;
+    window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    
+    const recognition_voice = new SpeechRecognition();
+    console.log(recognition_voice)
+    recognition_voice.interimResults = true;
+    recognition_voice.lang = "ta-IN";
+    // recognition.lang = "tamil";
+
+    recognition_voice.addEventListener('result', e => {
+        const transcript = Array.from(e.results)
+             .map(result => result[0])
+            .map(result => result.transcript)
+            .join('')
+            //console.log(transcript)
+            
+    
+        text.value += transcript
+    });
+      
+    if (voice_is == 1) {
+        recognition_voice.start();
+        //console.log(recognition.start())
+        recognition_voice.addEventListener('end', recognition_voice.start);
+        //console.log(recognition_voice.start)
+    }
+}
 
 
 //it's correct method
