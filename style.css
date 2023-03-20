@@ -191,6 +191,9 @@ h6{
     padding: 10px 10px 10px 10px;
     border: 5px solid black;
 }
+.switch{
+    cursor: pointer;
+}
 .container1{
     display: none;
 }

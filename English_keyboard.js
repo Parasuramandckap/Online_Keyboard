@@ -13,7 +13,7 @@ if(a == "online"){
     window.addEventListener('keyup', function (e) {
         console.log(e.key)
     
-        if (e.key.toLowerCase() !== "backspace" && e.key.toLowerCase() !== "enter" && e.key.toLowerCase() !== "capslock" && e.key.toLowerCase() !== "tab" && e.key.toLowerCase() !== "control" && e.key.toLowerCase() !== "wakeup" && e.key.toLowerCase() !== "alt" && e.key.toLowerCase() !== "shift" && e.key !== " ") {
+        if (e.key.toLowerCase() !== "backspace" && e.key.toLowerCase() !== "enter" && e.key.toLowerCase() !== "capslock" && e.key.toLowerCase() !== "tab" && e.key.toLowerCase() !== "control" && e.key.toLowerCase() !== "wakeup" && e.key.toLowerCase() !== "alt" && e.key.toLowerCase() !== "shift" && e.key !== " " && e.key !== "Delete") {
             text.value += e.key
             // alert()
         }
@@ -26,16 +26,29 @@ if(a == "online"){
             text.value+="\n"
     
         }
+        else if(e.key.toLowerCase() === "delete"){
+            document.querySelector(".del").classList.add("colors")
+
+        
+            if(confirm("are you erase the text")){
+                text.value = ""
+            }else{
+                setTimeout(()=>{
+                    document.querySelector(".del").classList.remove("colors")
+                },300)
+    
+            }
+        }
         if(e.key.toLowerCase() === "capslock"){
             document.querySelector(".CapsLock").classList.toggle("color")
             for(let i=0;i<keys.length;i++){
                 if(document.querySelector(".CapsLock").classList.contains("color")){
-                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" && keys[i].innerText !== ".com"&& keys[i].innerText !== "Switch" && keys[i].innerText !== "fn" ){
+                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" && keys[i].innerText !== ".com"&& keys[i].innerText !== "Switch" && keys[i].innerText !== "fn" && keys[i].innerText !== "del" ){
                         keys[i].innerText =  keys[i].innerText.toUpperCase()
                     }
                 }
                 else{
-                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic"&& keys[i].innerText !== ".com" && keys[i].innerText !== "Switch" && keys[i].innerText !== "fn"){
+                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic"&& keys[i].innerText !== ".com" && keys[i].innerText !== "Switch" && keys[i].innerText !== "fn" && keys[i].innerText !== "del"){
                         keys[i].innerText =  keys[i].innerText.toLowerCase()
                     }
                 }
@@ -50,37 +63,31 @@ if(a == "online"){
         }
         else if(e.key.toLowerCase() === "control"){
             text.value+=""
-            let ctrl = document.querySelectorAll(".ctrlkey")
-            for(let i=0;i<ctrl.length;i++){
-                ctrl[i].classList.add("colors")
-                setTimeout(()=>{
-                    ctrl[i].classList.remove("colors")
-                },200)
-            }
-    
+             document.querySelector(".ctrlkey").classList.add("colors")
+
+            setTimeout(()=>{
+                document.querySelector(".ctrlkey").classList.remove("colors")
+            },200)
     
         }
         else if(e.key.toLowerCase() === "wakeup"){
             text.value+=""
-            let Fn = document.querySelectorAll(".fn")
-            for(let i=0;i<Fn.length;i++){
-                Fn[i].classList.add("colors")
-                setTimeout(()=>{
-                    Fn[i].classList.remove("colors")
-                },200)
-            }
-    
+
+            document.querySelector(".fn").classList.add("colors")
+
+            setTimeout(()=>{
+                document.querySelector(".fn").classList.remove("colors")
+            },200)
     
         }
         else if(e.key === "alt"){
             text.value+=""
-            let Alt = document.querySelectorAll(".altkey")
-            for(let i=0;i<Alt.length;i++){
-                Alt[i].classList.add("colors")
-            }
+            document.querySelector(".alt_left").classList.add("colors")
+
             setTimeout(()=>{
-                Alt[i].classList.remove("colors")
+                document.querySelector(".alt_left").classList.remove("colors")
             },200)
+    
     
         }
         else if(e.key.toLowerCase() === "shift"){
@@ -119,7 +126,7 @@ else{
 
 for(let i=0;i<keys.length;i++){
     keys[i].addEventListener("click",(e)=>{            
-        if (e.target.innerText !== "Backspace" && e.target.innerText !== "Enter" && e.target.innerText !== "CapsLock" && e.target.innerText !== "Tab" && e.target.innerText !== "ctrl" && e.target.innerText !== "fn" && e.target.innerText !== "Alt" && e.target.innerText !== "Shift" && e.target.innerText !== "space" && e.target.innerText !== "Eng-mic" && e.target.innerText !== "Switch") {
+        if (e.target.innerText !== "Backspace" && e.target.innerText !== "Enter" && e.target.innerText !== "CapsLock" && e.target.innerText !== "Tab" && e.target.innerText !== "ctrl" && e.target.innerText !== "fn" && e.target.innerText !== "Alt" && e.target.innerText !== "Shift" && e.target.innerText !== "space" && e.target.innerText !== "Eng-mic" && e.target.innerText !== "Switch"&& e.target.innerText !== "del") {
             text.value += e.target.innerText
             
             
@@ -140,6 +147,11 @@ for(let i=0;i<keys.length;i++){
             text.value+=''
             English_voice()
         }
+        else if(e.target.innerText === "del"){
+            if(confirm("are you erase the text")){
+                text.value = ""
+            }
+        }
 
         else if(e.target.innerText === "CapsLock"){
     
@@ -147,11 +159,11 @@ for(let i=0;i<keys.length;i++){
                 for(let i=0;keys.length;i++){
                     if(document.querySelector(".CapsLock").classList.contains("color")){
             
-                        if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space"&& keys[i].innerText !== "Tam-mic" && keys[i].innerText !== ".com"  && keys[i].innerText !== "Switch" && keys[i].innerText !== "Eng-mic"){
+                        if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space"&& keys[i].innerText !== "Tam-mic" && keys[i].innerText !== ".com"  && keys[i].innerText !== "Switch" && keys[i].innerText !== "Eng-mic" && keys[i].innerText !== "del"){
                             keys[i].innerText =  keys[i].innerText.toUpperCase()
                         }
                 }else{
-                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" &&  keys[i].innerText !== "Switch" && keys[i].innerText !== "Eng-mic"){
+                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" &&  keys[i].innerText !== "Switch" && keys[i].innerText !== "Eng-mic" && keys[i].innerText !== "del"){
                         keys[i].innerText =  keys[i].innerText.toLowerCase()
                     }
                 }
@@ -275,23 +287,27 @@ tamil[t].addEventListener("click",(e)=>{
        
     }
     else if(e.target.innerText == "Backspace"){
-        tamil_area.innerText = text.value.slice(0,text.value.length -1)
+        tamil_area.value = tamil_area.value.slice(0,tamil_area.value.length -1)
         
     }
     else if(e.target.innerText == "அழி"){
-        tamil_area.value = ""
-        alert(4)
+        if(confirm("are you erase the text")){
+            tamil_area.value = ""
+        }
+   
+        
+        
     }
     else if(e.target.innerText == "Shift"){
         number_change()
         
     }
     else if(e.target.innerText === "Tab"){
-        text.value+="    "
+        tamil_area.value+="    "
         
     }
     else if(e.target.innerText ==="space"){
-        text.value+=" "
+        tamil_area.value+=" "
         
 
     }
