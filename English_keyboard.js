@@ -10,7 +10,6 @@ for (let i = 0; i < keys.length; i++) {
 
 let a = window.navigator.onLine ? "online":"offline";
 if(a == "online"){
-    document.querySelector(".container").style.display = "block"
     window.addEventListener('keyup', function (e) {
         console.log(e.key)
     
@@ -31,12 +30,12 @@ if(a == "online"){
             document.querySelector(".CapsLock").classList.toggle("color")
             for(let i=0;i<keys.length;i++){
                 if(document.querySelector(".CapsLock").classList.contains("color")){
-                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" && keys[i].innerText !== "Tam-mic"&& keys[i].innerText !== ".com"){
+                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" && keys[i].innerText !== ".com"&& keys[i].innerText !== "Switch" && keys[i].innerText !== "fn" ){
                         keys[i].innerText =  keys[i].innerText.toUpperCase()
                     }
                 }
                 else{
-                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" && keys[i].innerText !== "Tam-mic" && keys[i].innerText !== ".com"){
+                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic"&& keys[i].innerText !== ".com" && keys[i].innerText !== "Switch" && keys[i].innerText !== "fn"){
                         keys[i].innerText =  keys[i].innerText.toLowerCase()
                     }
                 }
@@ -112,15 +111,17 @@ if(a == "online"){
 }
 else{
     alert("please connect the internet")
+    document.querySelector(".container").style.display = "none";
+    document.querySelector(".container1").style.display = "none";
 }
 
 
 
 for(let i=0;i<keys.length;i++){
-    keys[i].addEventListener("click",(e)=>{
-            console.log(e.target.innerText) 
-        if (e.target.innerText !== "Backspace" && e.target.innerText !== "Enter" && e.target.innerText !== "CapsLock" && e.target.innerText !== "Tab" && e.target.innerText !== "ctrl" && e.target.innerText !== "fn" && e.target.innerText !== "Alt" && e.target.innerText !== "Shift" && e.target.innerText !== "space" && e.target.innerText !== "Eng-mic" && e.target.innerText !== "Tam-mic") {
+    keys[i].addEventListener("click",(e)=>{            
+        if (e.target.innerText !== "Backspace" && e.target.innerText !== "Enter" && e.target.innerText !== "CapsLock" && e.target.innerText !== "Tab" && e.target.innerText !== "ctrl" && e.target.innerText !== "fn" && e.target.innerText !== "Alt" && e.target.innerText !== "Shift" && e.target.innerText !== "space" && e.target.innerText !== "Eng-mic" && e.target.innerText !== "Switch") {
             text.value += e.target.innerText
+            
             
             // alert()
         }
@@ -139,21 +140,18 @@ for(let i=0;i<keys.length;i++){
             text.value+=''
             English_voice()
         }
-        else if(e.target.innerText === "Tam-mic"){
-            text.value+=''
-            Tamil_Voice()
-        }
+
         else if(e.target.innerText === "CapsLock"){
     
             document.querySelector(".CapsLock").classList.toggle("color")
                 for(let i=0;keys.length;i++){
                     if(document.querySelector(".CapsLock").classList.contains("color")){
             
-                        if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" && keys[i].innerText !== "Tam-mic" && keys[i].innerText !== ".com"){
+                        if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space"&& keys[i].innerText !== "Tam-mic" && keys[i].innerText !== ".com"  && keys[i].innerText !== "Switch" && keys[i].innerText !== "Eng-mic"){
                             keys[i].innerText =  keys[i].innerText.toUpperCase()
                         }
                 }else{
-                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "Fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" && keys[i].innerText !== "Tam-mic"&& keys[i].innerText !== ".com"){
+                    if(keys[i].innerText !== "Backspace" && keys[i].innerText !== "Enter" && keys[i].innerText !== "CapsLock" && keys[i].innerText !== "Tab" && keys[i].innerText !== "Ctrl" && keys[i].innerText !== "fn" && keys[i].innerText !== "Alt" && keys[i].innerText !== "Shift" && keys[i].innerText !== "space" && keys[i].innerText !== "Eng-mic" &&  keys[i].innerText !== "Switch" && keys[i].innerText !== "Eng-mic"){
                         keys[i].innerText =  keys[i].innerText.toLowerCase()
                     }
                 }
@@ -170,6 +168,11 @@ for(let i=0;i<keys.length;i++){
         }
         else if(e.target.innerText ==="space"){
             text.value+=" "
+
+        }
+        else if(e.target.innerText === "Switch"){
+            document.querySelector(".container").style.display = "none"
+            document.querySelector(".container1").style.display = "block"
 
         }
 
@@ -231,7 +234,7 @@ function English_voice(){
             //console.log(transcript)
             
     
-        text.value += transcript
+        text.innerText += transcript
     });
       
     if (voice_is == 1) {
@@ -240,6 +243,95 @@ function English_voice(){
         recognition_voice.addEventListener('end', recognition_voice.start);
         //console.log(recognition_voice.start)
     }
+}
+
+
+//tamil keyboard
+//tamil
+
+let tamil_area = document.querySelector(".text_tamil")
+//console.log(tamil_area)
+let t1 = [ 'அ', 'ஆ', 'இ', 'ஈ', 'உ', 'ஊ', 'எ', 'ஏ', 'ஐ', 'ஒ', 'ஓ', 'ஔ', 'ஃ']
+let t2 = [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '+', '=']
+
+
+let tamil = document.querySelectorAll(".tamil")
+//console.log(tamil)
+for(let t=0;t<tamil.length;t++){
+//console.log(tamil[t])
+tamil[t].addEventListener("click",(e)=>{
+    //console.log(e.target.innerText)
+    let t = e.target;
+    t.classList.add("s")
+    setTimeout(()=>{
+        t.classList.remove("s")
+    },200)
+    if(e.target.innerText !== "Backspace" && e.target.innerText !== "Tab" && e.target.innerText !== "Shift" && e.target.innerText !== "Enter" && e.target.innerText !== "space" && e.target.innerText !== "அழி" && e.target.innerText !== "Tam-mic" && e.target.innerText !== "Switch"){
+        tamil_area.value+= e.target.innerText
+        
+    }
+    else if(e.target.innerText == 'Enter'){
+        text.value+="\n"
+       
+    }
+    else if(e.target.innerText == "Backspace"){
+        tamil_area.innerText = text.value.slice(0,text.value.length -1)
+        
+    }
+    else if(e.target.innerText == "அழி"){
+        tamil_area.value = ""
+        alert(4)
+    }
+    else if(e.target.innerText == "Shift"){
+        number_change()
+        
+    }
+    else if(e.target.innerText === "Tab"){
+        text.value+="    "
+        
+    }
+    else if(e.target.innerText ==="space"){
+        text.value+=" "
+        
+
+    }
+    else if(e.target.innerText === "Tam-mic"){
+        //alert("hh")
+        Tamil_Voice()
+        
+    }
+    else if(e.target.innerText === "Switch"){
+        document.querySelector(".container1").style.display = "none"
+        document.querySelector(".container").style.display = "block"
+        
+    }
+
+
+
+    
+})
+}
+
+let meger = document.querySelectorAll(".tc")
+
+function number_change() {
+    for(let a=0;a<meger.length;a++){
+        console.log(meger[a])
+        meger[a].classList.toggle("main")
+    if(meger[a].classList.contains("main")){
+        for(let j=0;j<t1.length;j++){
+            //console.log(array[i]);
+            meger[a].innerText = t1[a]
+        }
+    }
+    else{
+        for(let p=0;p<t2.length;p++){
+            meger[a].innerText = t2[a]
+        }
+    }
+
+    }
+    
 }
 
 function Tamil_Voice(){
@@ -260,7 +352,7 @@ function Tamil_Voice(){
             //console.log(transcript)
             
     
-        text.value += transcript
+        tamil_area.innerText += transcript
     });
       
     if (voice_is == 1) {
@@ -270,6 +362,8 @@ function Tamil_Voice(){
         //console.log(recognition_voice.start)
     }
 }
+
+
 
 
 //it's correct method
